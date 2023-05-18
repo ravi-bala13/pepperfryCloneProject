@@ -2,21 +2,15 @@ import React, { useState } from "react";
 
 export default function Navbar() {
   const [dropDowns, setDropDowns] = useState({
-    isFurniture: true,
+    isFurniture: false,
     isLiving: false,
   });
 
-  console.log("dropDowns:", dropDowns);
-
   const handleOnMouseHover = (type) => {
-    console.log("type:", type);
-
     setDropDowns((prevState) => ({ ...prevState, [type]: true }));
   };
 
   const handleOnMouseOut = (type) => {
-    console.log("type:", type);
-
     setDropDowns((prevState) => ({ ...prevState, [type]: false }));
   };
 
@@ -60,14 +54,12 @@ export default function Navbar() {
       </div>
 
       <div id="category">
-        <div id="f">
-          <a
-            href="#"
-            onMouseOver={() => handleOnMouseHover("isFurniture")}
-            onMouseOut={() => handleOnMouseOut("isFurniture")}
-          >
-            Furniture
-          </a>
+        <div
+          id="f"
+          onMouseOver={() => handleOnMouseHover("isFurniture")}
+          onMouseOut={() => handleOnMouseOut("isFurniture")}
+        >
+          <a href="#">Furniture</a>
         </div>
         <div id="l">
           <a href="#">Living</a>
