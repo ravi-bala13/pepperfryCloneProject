@@ -206,7 +206,7 @@ body {
     z-index: 101;
     background-color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
 #living-dropdown {

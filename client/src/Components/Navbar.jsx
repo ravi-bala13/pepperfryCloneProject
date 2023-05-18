@@ -36,7 +36,7 @@ export default function Navbar() {
             <span>Wishlist</span>
           </div>
           <div class="links">
-            <a href="../html/cart.html">
+            <a href="/cart">
               <span class="material-icons-outlined"> shopping_cart </span>
             </a>
             <span>Cart</span>
@@ -108,7 +108,7 @@ export default function Navbar() {
           </div>
           <div style={{ display: "flex" }}>
             <div class="furniture-b">
-              <a href="../html/products.html">Sofas</a>
+              <a href="/products">Sofas</a>
               <a style={{ color: "gray" }} href="#">
                 1Seater Sofas
               </a>
@@ -229,7 +229,7 @@ export default function Navbar() {
             </div>
             <div style={{ display: "flex" }}>
               <div class="furniture-b">
-                <a href="#">Sofas</a>
+                <a href="/products">Sofas</a>
                 <a style={{ backgroundColor: "gray" }} href="#">
                   1Seater Sofas
                 </a>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Home.css";
 import Navbar from "./Navbar";
-import Footer from "./Footer";
+import FooterBar from "./FooterBar";
 
 export default function Home() {
   //  ------------------------- Slider  -----------------------------
@@ -255,7 +255,7 @@ export default function Home() {
         </div>
       </section>
 
-      <Footer />
+      <FooterBar />
     </div>
   );
 }
