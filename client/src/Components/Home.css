@@ -6,6 +6,11 @@
 
 /* style.css */
 
+div {
+    /* border: 1px solid red; */
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     box-sizing: border-box;
@@ -16,34 +21,52 @@ body {
     position: fixed;
     background-color: white;
     z-index: 501;
+    /* border: 1px solid red; */
+    top: 0;
+    /* left: 50%; */
+    width: 100%;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
 }
 
 #links {
     display: flex;
     height: 75px;
+    /* border: 1px solid black; */
+    width: 90%;
+    margin: auto;
+
 }
 
 #logo {
-    width: 14.5%;
-    margin-left: 42px;
+    /* width: 14.5%; */
+    /* margin-left: 42px; */
+    /* border: 1px solid red; */
+    flex-basis: 30%;
 }
 
 #logo>a>img {
-    width: 100%;
+    width: 40%;
     padding: 10px;
     padding-bottom: 0;
+    /* border: 1px solid red; */
 }
 
 #searchbar {
-    margin-left: 36px;
+    /* margin-left: 36px; */
     padding-top: 16px;
+    /* border: 1px solid red; */
+    position: relative;
+    flex-basis: 45%;
 }
 
 #searchbar>input {
-    width: 674px;
+    width: 100%;
     height: 44px;
     border-radius: 5px;
     border: 1px solid lightgrey;
+
 }
 
 #searchbar>input:focus {
@@ -60,7 +83,8 @@ body {
 
 #searchbar>i {
     position: absolute;
-    left: 71%;
+    /* left: 71%; */
+    right: 2%;
     padding-top: 7px;
     font-size: 2rem;
 }
@@ -68,8 +92,10 @@ body {
 #icon {
     display: flex;
     padding: 15px;
-    margin-left: 20px;
+    /* margin-left: 20px; */
     padding-bottom: 0;
+    flex-basis: 25%;
+    /* border: 1px solid red; */
 }
 
 .links {
@@ -143,14 +169,20 @@ body {
 #category {
     display: flex;
     padding-top: 12.5px;
-    padding-left: 54px;
+    /* padding-left: 54px; */
     border-top: 1px solid #e7e7e7;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    margin: auto;
+    /* border: 1px solid black; */
 }
 
 #category>div {
-    margin-right: 59.3px;
+    /* margin-right: 59.3px; */
     height: 33px;
+    /* border: 1px solid red; */
+    /* width: 20%; */
+    flex-basis: 20%;
 }
 
 #category>div>a {
@@ -170,10 +202,11 @@ body {
     width: 90.5%;
     margin-left: 54px;
     height: 450px;
-    display: none;
+    /* display: none; */
     z-index: 101;
     background-color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    border: 1px solid red;
 }
 
 #living-dropdown {
@@ -677,7 +710,7 @@ hr {
 /* style1.css */
 
 #body-one {
-    width: 92%;
+    width: 90%;
     margin: auto;
     padding-top: 134px;
     display: flex;
@@ -716,9 +749,10 @@ hr {
 }
 
 #body-three {
-    width: 92%;
+    width: 90%;
     margin: auto;
     margin-top: 50px;
+    /* border: 1px solid red; */
 }
 
 #body-three-a>h3 {
@@ -732,11 +766,14 @@ hr {
 }
 
 #body-three-b {
-    padding: 30px;
-    padding-left: 0;
+    /* padding: 30px; */
+    /* padding-left: 0; */
     display: flex;
     gap: 20px;
     text-align: center;
+    /* border: 1px solid black; */
+    align-items: center;
+    justify-content: center;
 }
 
 #body-three-b h3 {
@@ -745,7 +782,13 @@ hr {
     margin: 0;
 }
 
+#body-three-b>div {
+    width: 33%;
+    /* border: 1px solid red; */
+}
+
 #body-three-b>div>img {
+    width: 100%;
     display: inherit;
     height: auto;
     transform: scale(1);

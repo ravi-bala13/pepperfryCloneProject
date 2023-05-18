@@ -1,13 +1,50 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Home.css";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
 export default function Home() {
+  //  ------------------------- Slider  -----------------------------
+  const slider = [
+    "https://ii2.pepperfry.com/media/wysiwyg/banners/promo_2x_221021_es.jpg",
+    "https://ii2.pepperfry.com/media/wysiwyg/banners/HB01_Web_28102021_2x.jpg",
+    "https://ii2.pepperfry.com/media/wysiwyg/banners/HB02_Web_28102021_2x.jpg",
+    "https://ii2.pepperfry.com/media/wysiwyg/banners/HB03_Web_28102021_2x.jpg",
+    "https://ii2.pepperfry.com/media/wysiwyg/banners/HB04_Web_28102021_2x.jpg",
+  ];
+  const [sliderIndex, setsliderIndex] = useState(0);
+
+  function slideShow() {
+    setInterval(function () {
+      setsliderIndex((prev) => {
+        return (prev + 1) % slider.length;
+      });
+    }, 3000);
+  }
+
+  useEffect(() => {
+    slideShow();
+  }, []);
+
+  //  ------------------------- #######  -----------------------------
+
   return (
     <div>
       <Navbar />
       <section id="body">
+        <div id="body-one">
+          <div id="slider">
+            <img src={slider[sliderIndex]} alt="" />
+          </div>
+          <div id="offers">
+            <div>
+              <img src="https://ii1.pepperfry.com/media/wysiwyg/banners/28OctWEB_RHS_Deals2X.png" />
+            </div>
+            <div>
+              <img src="https://ii2.pepperfry.com/media/wysiwyg/banners/WEB_Bottom_RHS_ICICI2X-21.png" />
+            </div>
+          </div>
+        </div>
         <div id="body-two">
           <div>
             <h3>BANK OFFERS</h3>
