@@ -4,17 +4,14 @@ const router = express.Router();
 
 const Product = require("../models/products.model");
 
-router.get("/products", async (req, res) => {
+router.get("/", async (req, res) => {
+  try {
+    const products = await Product.find().lean().exec();
 
-    try {
-        const products = await Product.find().lean().exec();
-        // console.log('productsda:', products[0])
-                
-        return res.render("products", {products});
-    } catch (e) {
-        return res.status(500).json({message: e.message, status:"Failed"})       
-    }   
-    
+    return res.status(200).send(products);
+  } catch (e) {
+    return res.status(500).json({ message: e.message, status: "Failed" });
+  }
 });
 
 module.exports = router;

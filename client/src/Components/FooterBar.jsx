@@ -5,11 +5,11 @@ export default function FooterBar() {
     <div id="footer">
       <div id="footer-wrap">
         <div id="top-footer">
-          <div class="container">
-            <div class="row">
-              <div class="top-footer-col">
-                <div class="footer-col-wrapper">
-                  <h4 id="footer-logo" class="footer-col-heading">
+          <div className="container">
+            <div className="row">
+              <div className="top-footer-col">
+                <div className="footer-col-wrapper">
+                  <h4 id="footer-logo" className="footer-col-heading">
                     <a href="http://">
                       <img
                         src="https://ii3.pepperfry.com/images/pflogo_footer_new.png"
@@ -17,8 +17,8 @@ export default function FooterBar() {
                       />
                     </a>
                   </h4>
-                  <ul class="list">
-                    <li onclick="aboutUs()">
+                  <ul className="list">
+                    <li onClick="aboutUs()">
                       <a href="#"></a>About Us
                     </li>
                     <li>
@@ -48,10 +48,10 @@ export default function FooterBar() {
                   </ul>
                 </div>
               </div>
-              <div class="top-footer-col">
-                <div class="footer-col-wrapper">
-                  <h4 class="footer-col-heading">PARTNERS</h4>
-                  <ul class="list">
+              <div className="top-footer-col">
+                <div className="footer-col-wrapper">
+                  <h4 className="footer-col-heading">PARTNERS</h4>
+                  <ul className="list">
                     <li>
                       <a href="#">Sell With Us</a>
                     </li>
@@ -79,14 +79,14 @@ export default function FooterBar() {
                   </ul>
                 </div>
               </div>
-              <div class="top-footer-col">
-                <div class="footer-col-wrapper">
-                  <h4 class="footer-col-heading">
+              <div className="top-footer-col">
+                <div className="footer-col-wrapper">
+                  <h4 className="footer-col-heading">
                     <a href="https://www.pepperfry.com/contact-us.html?type=footer">
                       NEED HELP?
                     </a>
                   </h4>
-                  <ul class="list">
+                  <ul className="list">
                     <li>
                       <a href="#">Contact Us</a>
                     </li>
@@ -106,9 +106,9 @@ export default function FooterBar() {
                 </div>
               </div>
             </div>
-            <div class="row">
-              <div class="top-footer-col">
-                <div class="footer-col-wrapper">
+            <div className="row">
+              <div className="top-footer-col">
+                <div className="footer-col-wrapper">
                   <h4 id="footer-logo">POPULAR CATEGORIES </h4>
                   <p>
                     Queen Size Beds, King Size Beds, Coffee Tables, Dining Sets,
@@ -121,9 +121,9 @@ export default function FooterBar() {
                   </p>
                 </div>
               </div>
-              <div class="top-footer-col">
-                <div class="footer-col-wrapper">
-                  <h4 class="footer-col-heading">POPULAR BRANDS </h4>
+              <div className="top-footer-col">
+                <div className="footer-col-wrapper">
+                  <h4 className="footer-col-heading">POPULAR BRANDS </h4>
                   <p>
                     Mintwud, Woodsworth, CasaCraft, Amberville, Mudramark,
                     Bohemiana, Primorati, Mollycoddle, Mangiamo, Clouddio,
@@ -133,9 +133,9 @@ export default function FooterBar() {
                   </p>
                 </div>
               </div>
-              <div class="top-footer-col">
-                <div class="footer-col-wrapper">
-                  <h4 class="footer-col-heading">CITIES WE DELIVER TO </h4>
+              <div className="top-footer-col">
+                <div className="footer-col-wrapper">
+                  <h4 className="footer-col-heading">CITIES WE DELIVER TO </h4>
                   <p>
                     Bengaluru, Mumbai, Navi Mumbai, Delhi, Hyderabad, Pune,
                     Chennai, Gurgaon, Kolkata, Noida, Goa, Ghaziabad, Ahmedabad,
@@ -153,11 +153,11 @@ export default function FooterBar() {
 
         <hr />
         <div id="bottom-first-footer">
-          <div class="container">
-            <div class="row">
-              <div class="bottom-footer-col">
-                <div class="wrap-content">
-                  <h4 class="footer-col-heading">WE ACCEPT</h4>
+          <div className="container">
+            <div className="row">
+              <div className="bottom-footer-col">
+                <div className="wrap-content">
+                  <h4 className="footer-col-heading">WE ACCEPT</h4>
                   <div id="cards-wrap">
                     <div>
                       <img
@@ -210,10 +210,10 @@ export default function FooterBar() {
                   </div>
                 </div>
               </div>
-              <div class="bottom-footer-col">
-                <div class="wrap-content">
-                  <h4 class="footer-col-heading">DOWNLOAD OUR APP</h4>
-                  <ul class="store">
+              <div className="bottom-footer-col">
+                <div className="wrap-content">
+                  <h4 className="footer-col-heading">DOWNLOAD OUR APP</h4>
+                  <ul className="store">
                     <li>
                       <a href="https://play.google.com/store/apps/details?id=com.app.pepperfry">
                         <img
@@ -234,10 +234,10 @@ export default function FooterBar() {
                   </ul>
                 </div>
               </div>
-              <div class="bottom-footer-col">
-                <div class="wrap-content">
-                  <h4 class="footer-col-heading">FOLLOW US</h4>
-                  <ul class="social-media-wrap">
+              <div className="bottom-footer-col">
+                <div className="wrap-content">
+                  <h4 className="footer-col-heading">FOLLOW US</h4>
+                  <ul className="social-media-wrap">
                     <li>
                       <a href="https://www.facebook.com/Pepperfry">
                         <img
@@ -287,9 +287,9 @@ export default function FooterBar() {
 
         <hr />
         <div id="bottom-last-footer">
-          <div class="container">
-            <div class="row">
-              <div id="blf-col" class="flex-basis50">
+          <div className="container">
+            <div className="row">
+              <div id="blf-col" className="flex-basis50">
                 <ul>
                   <li>
                     <a href="#">Buy In Bulk |&nbsp; </a>
@@ -300,7 +300,7 @@ export default function FooterBar() {
                   </li>
                 </ul>
               </div>
-              <div id="blf-col" class="flex-basis50">
+              <div id="blf-col" className="flex-basis50">
                 <ul>
                   <li>
                     <a href="#"></a>Whitehat |&nbsp

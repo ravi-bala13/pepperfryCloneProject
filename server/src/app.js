@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 
 const User = require("./models/users.model");
 const userController = require("./controllers/users.controller");
@@ -6,12 +7,13 @@ const userController = require("./controllers/users.controller");
 const productController = require("./controllers/products.controller");
 
 const app = express();
+app.use(cors());
 
-app.set("view engine", "ejs");
+// app.set("view engine", "ejs");
 
 app.use(express.json());
 
-app.use(express.static("public"));
+// app.use(express.static("public"));
 
 // ***************************************
 // const bodyParser = require('body-parser');
@@ -32,13 +34,13 @@ app.get("/health-check", (req, res) => {
   return res.status(200).send("working fine");
 });
 
-app.use("/", userController);
+// app.use("/", userController);
 
-app.get("/products", (req, res) => {
-  return res.render("products.ejs");
-});
+// app.get("/products", (req, res) => {
+//   return res.render("products.ejs");
+// });
 
-app.use("/", productController);
+app.use("/products", productController);
 
 app.get("/productInfo", (req, res) => {
   return res.render("productInfo.ejs", {

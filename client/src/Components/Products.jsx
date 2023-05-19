@@ -1,15 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import FooterBar from "./FooterBar";
 import "./Products.css";
+import { Link } from "react-router-dom";
 
 export default function Products() {
+  const [products, setProducts] = useState([]);
+
+  const getProductsFromBackend = async () => {
+    try {
+      let url = "http://localhost:8080/products";
+      let result = await fetch(url);
+      console.log("result:", result);
+      let data = await result.json();
+      console.log("data:", data);
+      if (data.length) {
+        setProducts(data);
+      }
+    } catch (error) {
+      console.log("error:", error);
+    }
+  };
+
+  useEffect(() => {
+    getProductsFromBackend();
+  }, []);
+
+  const handleCardClick = (productId) => {
+    window.location.href = `/productInfo?${productId}`;
+  };
   return (
     <div>
       <Navbar />
 
-      <div class="main">
-        <div class="nav">
+      <div className="main">
+        <div className="nav">
           <div id="head">
             <div id="head-clip">
               <h4>ALL SOFAS</h4>
@@ -18,7 +43,7 @@ export default function Products() {
           <div id="head-categ">
             <div id="head-cate-flex">
               <div>
-                <div class="head-cate-card">
+                <div className="head-cate-card">
                   <div>
                     <div>
                       <img src="https://ii2.pepperfry.com/media/wysiwyg/banners/Fur_1_Seater_Sofas_27.jpg" />
@@ -31,7 +56,7 @@ export default function Products() {
                     <h5>709 Options</h5>
                   </div>
                 </div>
-                <div class="head-cate-card">
+                <div className="head-cate-card">
                   <div>
                     <div>
                       <img src="https://ii2.pepperfry.com/media/wysiwyg/banners/Fur_2_Seater_Sofas_27.jpg" />
@@ -44,7 +69,7 @@ export default function Products() {
                     <h5>757 Options</h5>
                   </div>
                 </div>
-                <div class="head-cate-card">
+                <div className="head-cate-card">
                   <div>
                     <div>
                       <img src="https://ii2.pepperfry.com/media/wysiwyg/banners/Fur_3_Seater_Sofas_27.jpg" />
@@ -61,14 +86,14 @@ export default function Products() {
             </div>
           </div>
         </div>
-        <div class="dash">
-          <div class="blank"></div>
-          <div class="outer-spaced">
-            <div class="sort-div"></div>
+        <div className="dash">
+          <div className="blank"></div>
+          <div className="outer-spaced">
+            <div className="sort-div"></div>
           </div>
-          <div class="outer-spaced">
+          <div className="outer-spaced">
             <div></div>
-            <div class="main-dash-content-filter">
+            <div className="main-dash-content-filter">
               <div>
                 <div>
                   <span>Home</span>
@@ -86,59 +111,59 @@ export default function Products() {
                 <div>
                   <h4>PEPPERFRY BRANDS</h4>
                   <br />
-                  <input type="checkbox" onclick="sortLH()" />
+                  <input type="checkbox" onClick="sortLH()" />
                   <span>No</span>
                   <span>(1298)</span>
                   <br />
-                  <input type="checkbox" onclick="sortHL()" />
+                  <input type="checkbox" onClick="sortHL()" />
                   <span>Yes</span>
                   <span>(1058)</span>
                   <br />
                 </div>
                 <div></div>
-                <div class="flex-input">
+                <div className="flex-input">
                   <h4>BRAND</h4>
                   <div>
-                    <input type="checkbox" onclick="sortBrand()" />
+                    <input type="checkbox" onClick="sortBrand()" />
                     <span>CasaCraft</span>
                     <span>(586)</span>
                     <br />
-                    <input type="checkbox" onclick="sortBrand1()" />
+                    <input type="checkbox" onClick="sortBrand1()" />
                     <span>Woodsworth</span>
                     <span>(268)</span>
                     <br />
-                    <input type="checkbox" onclick="sortBrand2()" />
+                    <input type="checkbox" onClick="sortBrand2()" />
                     <span>Durian</span>
                     <span>(183)</span>
                     <br />
-                    <input type="checkbox" onclick="sortBrand3()" />
+                    <input type="checkbox" onClick="sortBrand3()" />
                     <span>Furnitech</span>
                     <span>(126)</span>
                     <br />
-                    <input type="checkbox" onclick="sortBrand4()" />
+                    <input type="checkbox" onClick="sortBrand4()" />
                     <span>Urban Living</span>
                     <span>(102)</span>
                     <br />
                   </div>
                 </div>
-                <div class="flex-input">
+                <div className="flex-input">
                   <h4>PRICE</h4>
                   <div>
-                    <input type="checkbox" onclick="sortPrice20()" />
+                    <input type="checkbox" onClick="sortPrice20()" />
                     <span>Under ₹ 20,000</span>
                     <span>(204)</span>
                     <br />
-                    <input type="checkbox" onclick="sortPrice40()" />
+                    <input type="checkbox" onClick="sortPrice40()" />
                     <span>₹ 20,000 to ₹ 40,000</span>
                     <span>(783)</span>
                     <br />
-                    <input type="checkbox" onclick="sortPrice60()" />
+                    <input type="checkbox" onClick="sortPrice60()" />
                     <span>Over ₹ 40,000</span>
                     <span>(278)</span>
                     <br />
                   </div>
                 </div>
-                <div class="flex-input">
+                <div className="flex-input">
                   <h4>PRIMARY MATERIAL</h4>
                   <div>
                     <input type="checkbox" />
@@ -163,7 +188,7 @@ export default function Products() {
                     <br />
                   </div>
                 </div>
-                <div class="flex-input">
+                <div className="flex-input">
                   <h4>CLEARANCE SALE</h4>
                   <div>
                     <input type="checkbox" />
@@ -176,7 +201,7 @@ export default function Products() {
                     <br />
                   </div>
                 </div>
-                <div class="flex-input">
+                <div className="flex-input">
                   <h4>DISCOUNT</h4>
                   <div>
                     <input type="checkbox" />
@@ -203,22 +228,77 @@ export default function Products() {
                 </div>
               </div>
             </div>
-            <div class="main-dash-content-card">
+            <div className="main-dash-content-card">
               <div>
-                <div id="main-card"></div>
+                <div id="main-card">
+                  {products.map((el, i) => (
+                    <div onClick={() => handleCardClick(el._id)} key={el._id}>
+                      <div>
+                        <img src={el.img} alt="Product Image" />
+                      </div>
+                      <div>
+                        <span>
+                          <br />
+                          <b>{el.name}</b>
+                        </span>
+                      </div>
+                      <div>
+                        <span>{el.brand}</span>
+                        <a>
+                          <img
+                            src="https://ii1.pepperfry.com/images/svg/header-wishlist-icon-2021.svg"
+                            alt="Like"
+                          />
+                        </a>
+                      </div>
+
+                      <div>
+                        <div>
+                          <br />
+                          <b>₹ {el.price}</b> <span>₹ {el.cutPrice}</span>
+                        </div>
+                      </div>
+                      <div>
+                        <div>
+                          Save ₹ {el.cutPrice - el.price}{" "}
+                          <a>
+                            (
+                            {Math.round(
+                              ((el.cutPrice - el.price) / el.cutPrice) * 100
+                            )}
+                            % Off)
+                          </a>
+                          , Limited Time Offer
+                        </div>
+                      </div>
+                      <div>
+                        <div>
+                          <br />
+                          <img
+                            src="https://ii1.pepperfry.com/images/svg/clip-exp-ship-icon-2018.svg"
+                            alt="Ship Icon"
+                          />{" "}
+                          Ships In 1 Day
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="content"></div>
+        <div className="content"></div>
       </div>
 
-      <div class="clip-lstbtm-cnt">
-        <div class="container">
-          <div class="row">
-            <div class="pf-col sm-12 pf-padding-40">
-              <div class="cnt-repeat">
-                <h1 class="description-title">Buy Wooden Furniture Online</h1>
+      <div className="clip-lstbtm-cnt">
+        <div className="container">
+          <div className="row">
+            <div className="pf-col sm-12 pf-padding-40">
+              <div className="cnt-repeat">
+                <h1 className="description-title">
+                  Buy Wooden Furniture Online
+                </h1>
                 <p>
                   {" "}
                   Buy furniture online @ Pepperfry - India's largest home
@@ -237,7 +317,7 @@ export default function Products() {
                   purchasing the furniture. Here is a list of common factors
                   that can help you understand your needs better:
                 </p>
-                <ul class="ul-list">
+                <ul className="ul-list">
                   <li>Size of the area where the furniture will be placed</li>
                   <li>Size of the furniture</li>
                   <li>
@@ -258,7 +338,7 @@ export default function Products() {
                   style it, then be it a modular wardrobe or a loft bed with
                   storage and desk functionality.
                 </p>
-                <h2 class="description-title">
+                <h2 className="description-title">
                   Exclusive Range of Furniture Online
                 </h2>
                 <p>
@@ -297,7 +377,7 @@ export default function Products() {
                   materials and use the latest technologies to manufacture each
                   individual piece.
                 </p>
-                <h2 class="description-title">
+                <h2 className="description-title">
                   Wooden Furniture in Solid Wood &amp; Sheesham Designs
                 </h2>
                 <p>
@@ -386,8 +466,10 @@ export default function Products() {
                   and take a good look at our{" "}
                   <b>online furniture shopping store</b>.
                 </p>
-                <h2 class="description-title">Frequently Asked Questions</h2>
-                <h2 class="description-title">
+                <h2 className="description-title">
+                  Frequently Asked Questions
+                </h2>
+                <h2 className="description-title">
                   What is the most popular furniture style?
                 </h2>
                 <p>
@@ -395,7 +477,7 @@ export default function Products() {
                   modern, glam, and traditional. The chances of these furniture
                   styles going out of trend are minimal.
                 </p>
-                <h2 class="description-title">
+                <h2 className="description-title">
                   What are the latest trends in furniture?
                 </h2>
                 <p>
@@ -404,7 +486,7 @@ export default function Products() {
                   furniture, multi-functional furniture, unique metal furniture,
                   and artisan-inspired furniture.
                 </p>
-                <h2 class="description-title">
+                <h2 className="description-title">
                   What wood is best for furniture?
                 </h2>
                 <p>

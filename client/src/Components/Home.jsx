@@ -136,7 +136,7 @@ export default function Home() {
           <div id="body-three-a">
             <h3>PARTY HARD. SLEEP HARDER.</h3>
             <span>Mattresses From Top Brands</span>
-            <div id="body-three-b" class="body-three-bc">
+            <div id="body-three-b" className="body-three-bc">
               <div>
                 <img src="https://ii2.pepperfry.com/media/wysiwyg/banners/tm_web_03082021_1.jpg" />
                 <h3>Memory Foam</h3>

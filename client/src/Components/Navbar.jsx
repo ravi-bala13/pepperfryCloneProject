@@ -24,25 +24,25 @@ export default function Navbar() {
         </div>
         <div id="searchbar">
           <input type="search" placeholder="Search" />
-          <i class="material-icons-outlined">search</i>
+          <i className="material-icons-outlined">search</i>
         </div>
         <div id="icon">
-          <div class="links">
-            <span class="material-icons-outlined"> local_shipping </span>
+          <div className="links">
+            <span className="material-icons-outlined"> local_shipping </span>
             <span>Track</span>
           </div>
-          <div class="links">
-            <span class="material-icons-outlined"> favorite_border </span>
+          <div className="links">
+            <span className="material-icons-outlined"> favorite_border </span>
             <span>Wishlist</span>
           </div>
-          <div class="links">
+          <div className="links">
             <a href="/cart">
-              <span class="material-icons-outlined"> shopping_cart </span>
+              <span className="material-icons-outlined"> shopping_cart </span>
             </a>
             <span>Cart</span>
           </div>
-          <div class="links" id="profile">
-            <span class="material-icons-outlined"> person_outline </span>
+          <div className="links" id="profile">
+            <span className="material-icons-outlined"> person_outline </span>
             <span>Profile</span>
             <div id="signin-div">
               <button id="signin-div-btn">LOGIN/REGISTER</button>
@@ -107,7 +107,7 @@ export default function Navbar() {
             <span>Beds</span>
           </div>
           <div style={{ display: "flex" }}>
-            <div class="furniture-b">
+            <div className="furniture-b">
               <a href="/products">Sofas</a>
               <a style={{ color: "gray" }} href="#">
                 1Seater Sofas
@@ -125,7 +125,7 @@ export default function Navbar() {
               <a href="#">Futons</a>
               <a href="#">Sofa Spa</a>
             </div>
-            <div class="furniture-b" style={{ backgroundColor: "#F5F5F5" }}>
+            <div className="furniture-b" style={{ backgroundColor: "#F5F5F5" }}>
               <a href="#">Settees</a>
               <a href="#">Benches</a>
               <a href="#">Chaise Loungers</a>
@@ -138,7 +138,7 @@ export default function Navbar() {
               <a href="#">Swings</a>
               <a href="#">Hammocks</a>
             </div>
-            <div class="furniture-b">
+            <div className="furniture-b">
               <a href="#">Arm Chairs</a>
               <a href="#">Rocking Chairs</a>
               <a href="#">Lounge Chairs</a>
@@ -153,7 +153,7 @@ export default function Navbar() {
               <a href="#">Office Chairs</a>
               <a href="#">Patio Chairs</a>
             </div>
-            <div class="furniture-b" style={{ backgroundColor: "#F5F5F5" }}>
+            <div className="furniture-b" style={{ backgroundColor: "#F5F5F5" }}>
               <a href="#">Coffee Tables</a>
               <a href="#">Coffee Tables Sets</a>
               <a href="#">End Tables</a>
@@ -172,7 +172,7 @@ export default function Navbar() {
                 Patio Tables
               </a>
             </div>
-            <div class="furniture-b">
+            <div className="furniture-b">
               <a href="#">Shoe Racks</a>
               <a href="#">Entertainment Units</a>
               <a href="#">Cabinet & Sideboards</a>
@@ -185,7 +185,7 @@ export default function Navbar() {
               <a href="#">Plastic Cabinets</a>
               <a href="#">Office Cabinets</a>
             </div>
-            <div class="furniture-b" style={{ backgroundColor: "#F5F5F5" }}>
+            <div className="furniture-b" style={{ backgroundColor: "#F5F5F5" }}>
               <a href="#">Dining Sets</a>
               <a href="#">Dining Chairs</a>
               <a href="#">Dining Tables</a>
@@ -196,7 +196,7 @@ export default function Navbar() {
               <a href="#">Bar Table Sets</a>
               <a href="#">Modular Kitchens</a>
             </div>
-            <div class="furniture-b">
+            <div className="furniture-b">
               <a href="#">Beds</a>
               <a style={{ color: "gray" }} href="#">
                 Single Beds
@@ -228,7 +228,7 @@ export default function Navbar() {
               <span>Lighting</span>
             </div>
             <div style={{ display: "flex" }}>
-              <div class="furniture-b">
+              <div className="furniture-b">
                 <a href="/products">Sofas</a>
                 <a style={{ backgroundColor: "gray" }} href="#">
                   1Seater Sofas
@@ -247,7 +247,7 @@ export default function Navbar() {
                 <a href="#">Sofa Spa</a>
               </div>
               <div
-                class="furniture-b"
+                className="furniture-b"
                 style={{ backgroundColor: "#F5F5F5", height: "345px" }}
               >
                 <a href="#">Settees</a>
@@ -261,7 +261,7 @@ export default function Navbar() {
                 <a href="#">Bean Bags</a>
                 <a href="#">Bar Stools</a>
               </div>
-              <div class="furniture-b">
+              <div className="furniture-b">
                 <a href="#">Arm Chairs</a>
                 <a href="#">Rocking Chairs</a>
                 <a href="#">Lounge Chairs</a>
@@ -276,7 +276,7 @@ export default function Navbar() {
                 <a href="#">Chair Spa</a>
               </div>
               <div
-                class="furniture-b"
+                className="furniture-b"
                 style={{ backgroundColor: "#F5F5F5", height: "345px" }}
               >
                 <a href="#">Coffee Tables</a>
@@ -288,7 +288,7 @@ export default function Navbar() {
                 <a href="#">Portable Tables</a>
                 <a href="#">Bar Table Sets</a>
               </div>
-              <div class="furniture-b">
+              <div className="furniture-b">
                 <a href="#">Shoe Racks</a>
                 <a href="#">Entertainment Units</a>
                 <a href="#">Cabinet & Sideboards</a>
@@ -300,7 +300,7 @@ export default function Navbar() {
                 <a href="#">Bar Trolleys</a>
               </div>
               <div
-                class="furniture-b"
+                className="furniture-b"
                 style={{ backgroundColor: "#F5F5F5", height: "345px" }}
               >
                 <a href="#">Wall Shelves</a>
@@ -313,7 +313,7 @@ export default function Navbar() {
                 <a href="#">Photo Frames</a>
                 <a href="#">Key Holders</a>
               </div>
-              <div class="furniture-b">
+              <div className="furniture-b">
                 <a href="#">Chandeliers</a>
                 <a href="#">Wall Lights</a>
                 <a href="#">Floor Lamps</a>
@@ -331,23 +331,23 @@ export default function Navbar() {
 
           <div id="signin-modal">
             <span id="close">X</span>
-            <div class="mainPage">
-              <div class="left">
+            <div className="mainPage">
+              <div className="left">
                 <img
                   src="https://ii1.pepperfry.com/media/wysiwyg/banners/Web_IMG_12Oct.jpg"
                   alt=""
                 />
               </div>
-              <div class="right">
-                <div class="rightUp">
-                  <div class="rightInner">
+              <div className="right">
+                <div className="rightUp">
+                  <div className="rightInner">
                     <form id="myform">
-                      <div class="container">
-                        <div class="name">
-                          <label for="uname"></label>
+                      <div className="container">
+                        <div className="name">
+                          <label htmlFor="username"></label>
                           <input
                             type="text"
-                            class="Input"
+                            className="Input"
                             id="UnName"
                             placeholder="Name"
                             name="uname"
@@ -356,12 +356,12 @@ export default function Navbar() {
                           <p id="alert1"></p>
                         </div>
                       </div>
-                      <div class="container">
-                        <div class="name">
-                          <label for="num"></label>
+                      <div className="container">
+                        <div className="name">
+                          <label htmlFor="num"></label>
                           <input
                             type="tel"
-                            class="Input"
+                            className="Input"
                             id="UserNum"
                             placeholder="Mobile number"
                             name="num"
@@ -370,12 +370,12 @@ export default function Navbar() {
                           <p id="alert"></p>
                         </div>
                       </div>
-                      <div class="container">
-                        <div class="name">
-                          <label for="mail"></label>
+                      <div className="container">
+                        <div className="name">
+                          <label htmlFor="mail"></label>
                           <input
                             type="text"
-                            class="Input"
+                            className="Input"
                             id="mail"
                             placeholder="Email"
                             name="mail"
@@ -384,12 +384,12 @@ export default function Navbar() {
                           <p id="alert2"></p>
                         </div>
                       </div>
-                      <div class="container">
-                        <div class="name">
-                          <label for="psswrd"></label>
+                      <div className="container">
+                        <div className="name">
+                          <label htmlFor="psswrd"></label>
                           <input
                             type="password"
-                            class="Input"
+                            className="Input"
                             id="psswrd"
                             placeholder="Password"
                             name="psw"
@@ -400,26 +400,26 @@ export default function Navbar() {
                       </div>
                     </form>
                     <button id="register">REGISTER</button>
-                    <span class="login_span">
+                    <span className="login_span">
                       By registering you agree to our{" "}
-                      <a class="termconditions" href="#">
+                      <a className="termconditions" href="#">
                         Terms & Conditions
                       </a>
                     </span>
                   </div>
                 </div>
-                <div class="rightdown">
-                  <div class="rightdown-1">
-                    <a class="link" href="#" id="go_to_login">
+                <div className="rightdown">
+                  <div className="rightdown-1">
+                    <a className="link" href="#" id="go_to_login">
                       Existing User? Log In
                     </a>
                   </div>
-                  <div class=" rightdown-2 ">
-                    <span class="social ">OR Continue with</span>
-                    <a class="social-image " href="#">
+                  <div className=" rightdown-2 ">
+                    <span className="social ">OR Continue with</span>
+                    <a className="social-image " href="#">
                       <img src="https://ii1.pepperfry.com/images/social_login_fb_2x.png " />
                     </a>
-                    <a class="social-image " href="#">
+                    <a className="social-image " href="#">
                       <img src="https://ii1.pepperfry.com/images/social_login_google_2x.png " />
                     </a>
                   </div>
@@ -434,23 +434,23 @@ export default function Navbar() {
               <p>You Will Be Able To Track Your Order, Use Wishlist & More.</p>
             </div>
             <span id="close1">X</span>
-            <div class="loginPage">
-              <div class="left_one">
+            <div className="loginPage">
+              <div className="left_one">
                 <img
                   src="https://ii1.pepperfry.com/images/new_login_modal_bg_2020.jpg"
                   alt=""
                 />
               </div>
-              <div class="right_one">
-                <div class="right_one_Up">
-                  <div class="right_one_Inner">
+              <div className="right_one">
+                <div className="right_one_Up">
+                  <div className="right_one_Inner">
                     <form id="myform1">
-                      <div class="block">
-                        <div class="names">
-                          <label for="mail"></label>
+                      <div className="block">
+                        <div className="names">
+                          <label htmlFor="mail"></label>
                           <input
                             type="text"
-                            class="input"
+                            className="input"
                             id="mail1"
                             placeholder="Email"
                             name="mail"
@@ -458,12 +458,12 @@ export default function Navbar() {
                           />
                         </div>
                       </div>
-                      <div class="block">
-                        <div class="names">
-                          <label for="psw"></label>
+                      <div className="block">
+                        <div className="names">
+                          <label htmlFor="psw"></label>
                           <input
                             type="password"
-                            class="input"
+                            className="input"
                             id="psw1"
                             placeholder="Password"
                             name="psw"
@@ -486,10 +486,10 @@ export default function Navbar() {
                     </a>
                   </div>
                 </div>
-                <div class="right_one_down">
-                  <div class="right_one_down-1">
+                <div className="right_one_down">
+                  <div className="right_one_down-1">
                     <a
-                      class="link"
+                      className="link"
                       href="#"
                       style={{
                         color: "#f16521",
@@ -500,12 +500,12 @@ export default function Navbar() {
                       New to Pepperfry? Register Here
                     </a>
                   </div>
-                  <div class="right_one_down-2">
-                    <span class="media">OR Continue with</span>
-                    <a class="media-image" href="#">
+                  <div className="right_one_down-2">
+                    <span className="media">OR Continue with</span>
+                    <a className="media-image" href="#">
                       <img src="https://ii1.pepperfry.com/images/social_login_fb_2x.png" />
                     </a>
-                    <a class="media-image" href="#">
+                    <a className="media-image" href="#">
                       <img src="https://ii1.pepperfry.com/images/social_login_google_2x.png" />
                     </a>
                   </div>
