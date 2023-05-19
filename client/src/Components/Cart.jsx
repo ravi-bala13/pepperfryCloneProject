@@ -1,20 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Cart.css";
 
 export default function Cart() {
+  const [products, setProducts] = useState([]);
+
+  const getProductsFromBackend = async () => {
+    try {
+      let url = "http://localhost:8080/products";
+      let result = await fetch(url);
+      console.log("result:", result);
+      let data = await result.json();
+      console.log("data:", data);
+      if (data.length) {
+        setProducts(data);
+      }
+    } catch (error) {
+      console.log("error:", error);
+    }
+  };
+
+  useEffect(() => {
+    getProductsFromBackend();
+  }, []);
   return (
     <div>
       <div class="navbar">
         <div class="logo">
-          <a href="../index.html">
+          <a href="#">
             <img
-              src="https://www.icicibank.com/managed-assets/images/offer-zone/brand-logos/pepperfry.png"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/ICICI_Bank_Logo.svg/800px-ICICI_Bank_Logo.svg.png"
               alt="no load"
             />
           </a>
         </div>
         <div class="mid-nav">
-          <div class="cart-logo">
+          {/* <div class="cart-logo">
             <div>
               <span id="cart1" class="material-icons-outlined">
                 {" "}
@@ -33,7 +53,7 @@ export default function Cart() {
                 shopping_cart{" "}
               </span>
             </div>
-          </div>
+          </div> */}
           <div class="cart-bottom">
             <a href="">Cart</a> <a href="">------ Delivery & Billing Address</a>{" "}
             <a href=""> ------ Payment</a>
@@ -56,7 +76,66 @@ export default function Cart() {
               GO
             </button>
           </div>
-          <div id="dis"></div>
+          <div id="dis">
+            {products.map((el) => (
+              // let item = document.createElement("div");
+              <div className="item">
+                {/* let div1A = document.createElement("div"); */}
+                <div>
+                  <img className="pics" src={el.img} alt="" />
+                </div>
+
+                {/* let div1B = document.createElement("div"); */}
+                <div>
+                  {/* let div1B1 = document.createElement("div"); */}
+                  <div>
+                    {el.name} - {el.brand}
+                  </div>
+
+                  {/* let div1B2 = document.createElement("div"); */}
+                  <div style={{ color: "#f16521" }}>
+                    36 Month's Warranty, 100% Genuine
+                  </div>
+
+                  {/* let div1B3 = document.createElement("div"); */}
+                  <div style={{ color: "darkgrey" }}>
+                    Delivery by Thur 18th Nov.
+                  </div>
+                </div>
+
+                {/* let div1C = document.createElement("div"); */}
+                <div className="plus">
+                  <div className="quan">
+                    <div style={{ cursor: "pointer" }}>-</div>
+                    <div className="countBox">5</div>
+                    <div style={{ cursor: "pointer" }}>+</div>
+                  </div>
+
+                  <div
+                    style={{ color: "gray", textDecoration: "line-through" }}
+                  >
+                    ₹{el.cutPrice}
+                  </div>
+                  <div style={{ color: "#f16521", fontWeight: 700 }}>
+                    ₹{el.price}
+                  </div>
+                </div>
+
+                <div className="wish">
+                  <img
+                    className="del"
+                    src="https://cdn-icons-png.flaticon.com/128/1632/1632602.png"
+                    alt=""
+                  />
+                  <img
+                    className="del"
+                    src="https://icon-library.com/images/wish-list-icon/wish-list-icon-1.jpg"
+                    alt=""
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
         <div id="box2">
           <div>

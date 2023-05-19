@@ -27,7 +27,7 @@ export default function Products() {
   }, []);
 
   const handleCardClick = (productId) => {
-    window.location.href = `/productInfo?${productId}`;
+    window.location.href = `/productInfo/${productId}`;
   };
   return (
     <div>

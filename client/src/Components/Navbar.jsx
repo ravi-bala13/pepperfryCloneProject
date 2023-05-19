@@ -18,7 +18,7 @@ export default function Navbar() {
     <div id="navbar">
       <div id="links">
         <div id="logo">
-          <a href="../index.html">
+          <a href="/">
             <img src="https://techstory.in/wp-content/uploads/2018/03/Pepperfry.png" />
           </a>
         </div>

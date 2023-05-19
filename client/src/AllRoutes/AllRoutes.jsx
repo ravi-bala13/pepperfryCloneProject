@@ -11,7 +11,7 @@ export default function AllRoutes() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
-        <Route path="/productInfo" element={<ProductInfo />} />
+        <Route path="/productInfo/:id" element={<ProductInfo />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
     </div>

@@ -14,4 +14,14 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/:id", async (req, res) => {
+  try {
+    const product = await Product.findById(req.params.id).lean().exec();
+
+    return res.status(200).send(product);
+  } catch (e) {
+    return res.status(500).json({ message: e.message, status: "Failed" });
+  }
+});
+
 module.exports = router;

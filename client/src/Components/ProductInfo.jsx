@@ -1,9 +1,47 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./ProductInfo.css";
 import Navbar from "./Navbar";
 import FooterBar from "./FooterBar";
+import { useParams } from "react-router-dom";
 
 export default function ProductInfo() {
+  const queryParams = useParams();
+  const productId = queryParams.id;
+
+  const [product, setProduct] = useState({
+    name: "",
+    price: "",
+    img: "",
+    brand: "",
+    cutPrice: "",
+  });
+
+  const backendUrl = `http://localhost:8080/products/${productId}`;
+
+  const getdataFromBacked = () => {
+    fetch(backendUrl)
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("Error: " + response.status);
+        }
+      })
+      .then((data) => {
+        // Process the received data
+        console.log(data);
+        setProduct(data);
+      })
+      .catch((error) => {
+        // Handle any errors that occurred during the request
+        console.error(error);
+      });
+  };
+
+  useEffect(() => {
+    getdataFromBacked();
+  }, []);
+
   return (
     <div>
       <Navbar />
@@ -12,14 +50,11 @@ export default function ProductInfo() {
           <span>
             {"Home > Furniture > Sofas & Loungers > Sofas > 2 Seater Sofas >"}{" "}
           </span>
-          <span style={{ color: "black" }}>Rolled Arms 2 Seater Sofas</span>
+          <span style={{ color: "black" }}>{product.name}</span>
         </div>
         <div className="content">
           <div className="left">
-            <img
-              id="sofaimg"
-              src="https://ii1.pepperfry.com/media/catalog/product/f/a/568x284/fabiola-2-seater-sofa-in-blue-colour-fabiola-2-seater-sofa-in-blue-colour-gomeu2.jpg"
-            />
+            <img id="sofaimg" src={product.img} />
             <div className="share-wishlist">
               <a href="#" className="share">
                 <svg
@@ -60,7 +95,7 @@ export default function ProductInfo() {
           <div className="right">
             <h2 id="NAME" className="heading"></h2>
             <div id="BRAND" className="arra-div">
-              by ARRA
+              {product.brand}
             </div>
             <div className="price">
               <svg
@@ -78,7 +113,7 @@ export default function ProductInfo() {
                 />
               </svg>
               <h2 id="mrp" className="mrp">
-                26,553
+                {product.price}
               </h2>
               <div className="tax">(Inclusive of all taxes)</div>
             </div>
@@ -99,7 +134,7 @@ export default function ProductInfo() {
                     d="M9 8h6m-5 0a3 3 0 110 6H9l3 3m-3-6h6m6 1a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
-                <span id="cutprice">57,637</span> (68% Off)
+                <span id="cutprice">{product.cutPrice}</span> (68% Off)
               </a>
             </div>
             <div>
