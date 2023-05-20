@@ -119,19 +119,25 @@ body {
     color: black;
 }
 
+#profile {
+    /* border: 1px solid red; */
+}
+
 #signin-div,
 #login-div {
     position: absolute;
-    margin-top: 50px;
+    margin-top: 45px;
     right: 20px;
-    width: 130px;
-    height: 80px;
+    width: 150px;
+    height: 100px;
     z-index: 203;
     background-color: white;
     border-radius: 5px;
     padding: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-    display: none;
+    /* display: none; */
+    /* border: 1px solid red; */
+    right: 50px;
 }
 
 #signin-div>button {
@@ -261,7 +267,7 @@ body {
     z-index: 204;
     background-color: white;
     border-radius: 3px;
-    display: none;
+    /* display: none; */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
@@ -301,16 +307,22 @@ body {
     color: white;
     padding: 0;
     display: flex;
+    /* border: 1px solid red; */
 }
 
-.left img {
+#sigin_left_img {
     width: 100%;
     height: 500px;
+    /* border-radius: 50px; */
+    /* border: 1px solid red; */
+    padding-bottom: 0;
 }
+
 
 .left {
     width: 40%;
     float: left;
+    /* border: 1px solid red; */
 }
 
 .right {
@@ -453,10 +465,13 @@ form {
 .right_one {
     width: 50%;
     float: left;
+    /* border: 1px solid red; */
 }
 
 .right_one_Up {
     box-sizing: border-box;
+    /* border: 1px solid black; */
+    height: 300px;
 }
 
 .right_one_Inner {
@@ -485,6 +500,7 @@ form {
     background-repeat: no-repeat;
     background-position: center bottom;
     color: #969696;
+    /* border: 1px solid red; */
 }
 
 .loginPage button {

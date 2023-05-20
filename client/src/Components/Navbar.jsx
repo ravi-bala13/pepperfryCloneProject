@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import SigninModel from "./SigninModel";
+import LoginModel from "./LoginModel";
 
 export default function Navbar() {
   const [dropDowns, setDropDowns] = useState({
@@ -13,6 +15,15 @@ export default function Navbar() {
   const handleOnMouseOut = (type) => {
     setDropDowns((prevState) => ({ ...prevState, [type]: false }));
   };
+
+  // signin and login
+
+  const [signinModel, setsigninModel] = useState(false);
+  console.log("signinModel:", signinModel);
+  const [loginModel, setLoginModel] = useState(false);
+
+  const [signinDiv, setsigninDiv] = useState(false);
+  const [loginDiv, setLoginDiv] = useState(false);
 
   return (
     <div id="navbar">
@@ -41,13 +52,22 @@ export default function Navbar() {
             </a>
             <span>Cart</span>
           </div>
-          <div className="links" id="profile">
+          <div
+            className="links"
+            id="profile"
+            onMouseOver={() => setsigninDiv(true)}
+            onMouseOutCapture={() => setsigninDiv(false)}
+          >
             <span className="material-icons-outlined"> person_outline </span>
             <span>Profile</span>
-            <div id="signin-div">
-              <button id="signin-div-btn">LOGIN/REGISTER</button>
-              <p>To access your account & manage orders</p>
-            </div>
+            {signinDiv ? (
+              <div id="signin-div">
+                <button onClick={() => setLoginModel(true)} id="signin-div-btn">
+                  LOGIN/REGISTER
+                </button>
+                <p>To access your account & manage orders</p>
+              </div>
+            ) : null}
             <div id="login-div"></div>
           </div>
         </div>
@@ -329,190 +349,19 @@ export default function Navbar() {
             </div>
           </div>
 
-          <div id="signin-modal">
-            <span id="close">X</span>
-            <div className="mainPage">
-              <div className="left">
-                <img
-                  src="https://ii1.pepperfry.com/media/wysiwyg/banners/Web_IMG_12Oct.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="right">
-                <div className="rightUp">
-                  <div className="rightInner">
-                    <form id="myform">
-                      <div className="container">
-                        <div className="name">
-                          <label htmlFor="username"></label>
-                          <input
-                            type="text"
-                            className="Input"
-                            id="UnName"
-                            placeholder="Name"
-                            name="uname"
-                            required
-                          />
-                          <p id="alert1"></p>
-                        </div>
-                      </div>
-                      <div className="container">
-                        <div className="name">
-                          <label htmlFor="num"></label>
-                          <input
-                            type="tel"
-                            className="Input"
-                            id="UserNum"
-                            placeholder="Mobile number"
-                            name="num"
-                            required
-                          />
-                          <p id="alert"></p>
-                        </div>
-                      </div>
-                      <div className="container">
-                        <div className="name">
-                          <label htmlFor="mail"></label>
-                          <input
-                            type="text"
-                            className="Input"
-                            id="mail"
-                            placeholder="Email"
-                            name="mail"
-                            required
-                          />
-                          <p id="alert2"></p>
-                        </div>
-                      </div>
-                      <div className="container">
-                        <div className="name">
-                          <label htmlFor="psswrd"></label>
-                          <input
-                            type="password"
-                            className="Input"
-                            id="psswrd"
-                            placeholder="Password"
-                            name="psw"
-                            required
-                          />
-                          <p id="alert3"></p>
-                        </div>
-                      </div>
-                    </form>
-                    <button id="register">REGISTER</button>
-                    <span className="login_span">
-                      By registering you agree to our{" "}
-                      <a className="termconditions" href="#">
-                        Terms & Conditions
-                      </a>
-                    </span>
-                  </div>
-                </div>
-                <div className="rightdown">
-                  <div className="rightdown-1">
-                    <a className="link" href="#" id="go_to_login">
-                      Existing User? Log In
-                    </a>
-                  </div>
-                  <div className=" rightdown-2 ">
-                    <span className="social ">OR Continue with</span>
-                    <a className="social-image " href="#">
-                      <img src="https://ii1.pepperfry.com/images/social_login_fb_2x.png " />
-                    </a>
-                    <a className="social-image " href="#">
-                      <img src="https://ii1.pepperfry.com/images/social_login_google_2x.png " />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          {signinModel ? (
+            <SigninModel
+              setLoginModel={setLoginModel}
+              setsigninModel={setsigninModel}
+            />
+          ) : null}
 
-          <div id="login-modal">
-            <div id="login-modal-text">
-              <span>Log In</span>
-              <p>You Will Be Able To Track Your Order, Use Wishlist & More.</p>
-            </div>
-            <span id="close1">X</span>
-            <div className="loginPage">
-              <div className="left_one">
-                <img
-                  src="https://ii1.pepperfry.com/images/new_login_modal_bg_2020.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="right_one">
-                <div className="right_one_Up">
-                  <div className="right_one_Inner">
-                    <form id="myform1">
-                      <div className="block">
-                        <div className="names">
-                          <label htmlFor="mail"></label>
-                          <input
-                            type="text"
-                            className="input"
-                            id="mail1"
-                            placeholder="Email"
-                            name="mail"
-                            required
-                          />
-                        </div>
-                      </div>
-                      <div className="block">
-                        <div className="names">
-                          <label htmlFor="psw"></label>
-                          <input
-                            type="password"
-                            className="input"
-                            id="psw1"
-                            placeholder="Password"
-                            name="psw"
-                            required
-                          />
-                        </div>
-                      </div>
-                    </form>
-                    <button id="login">LOG IN</button>
-                    <a
-                      href="#"
-                      style={{
-                        color: "#f16521",
-                        fontSize: "12px",
-                        fontWeight: "300",
-                        fontFamily: "'Fira Sans',sans-serif",
-                      }}
-                    >
-                      Forgot Password
-                    </a>
-                  </div>
-                </div>
-                <div className="right_one_down">
-                  <div className="right_one_down-1">
-                    <a
-                      className="link"
-                      href="#"
-                      style={{
-                        color: "#f16521",
-                        fontFamily: "'Fira Sans',sans-serif",
-                      }}
-                      id="go-to-register"
-                    >
-                      New to Pepperfry? Register Here
-                    </a>
-                  </div>
-                  <div className="right_one_down-2">
-                    <span className="media">OR Continue with</span>
-                    <a className="media-image" href="#">
-                      <img src="https://ii1.pepperfry.com/images/social_login_fb_2x.png" />
-                    </a>
-                    <a className="media-image" href="#">
-                      <img src="https://ii1.pepperfry.com/images/social_login_google_2x.png" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          {loginModel ? (
+            <LoginModel
+              setLoginModel={setLoginModel}
+              setsigninModel={setsigninModel}
+            />
+          ) : null}
         </div>
       </div>
     </div>
