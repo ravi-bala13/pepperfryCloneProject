@@ -1,6 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function LoginModel({ setsigninModel, setLoginModel }) {
+  const [userDetails, setUserDetails] = useState({
+    umail: "",
+    upassword: "",
+  });
+
+  const backendUrl = "https://pepperfryclonebackend.onrender.com";
+  // const backendUrl = "http://localhost:8080";
+  const loginSubmit = async () => {
+    try {
+      let url = `${backendUrl}/users/login`;
+      let result = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(userDetails),
+      });
+      console.log("result:", result);
+      let data = await result.json();
+      console.log("data:", data);
+      if (data.message) {
+        alert(data.message);
+        setLoginModel(false);
+      }
+    } catch (error) {
+      console.log("error:", error);
+    }
+  };
+
+  const handleChange = (e) => {
+    setUserDetails({ ...userDetails, [e.target.name]: e.target.value });
+  };
+
   return (
     <div id="login-modal">
       <div id="login-modal-text">
@@ -29,7 +60,9 @@ export default function LoginModel({ setsigninModel, setLoginModel }) {
                       className="input"
                       id="mail1"
                       placeholder="Email"
-                      name="mail"
+                      onChange={handleChange}
+                      value={userDetails.umail}
+                      name="umail"
                       required
                     />
                   </div>
@@ -42,13 +75,17 @@ export default function LoginModel({ setsigninModel, setLoginModel }) {
                       className="input"
                       id="psw1"
                       placeholder="Password"
-                      name="psw"
+                      onChange={handleChange}
+                      value={userDetails.upassword}
+                      name="upassword"
                       required
                     />
                   </div>
                 </div>
               </form>
-              <button id="login">LOG IN</button>
+              <button id="login" onClick={loginSubmit}>
+                LOG IN
+              </button>
               <a
                 href="#"
                 style={{

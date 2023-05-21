@@ -19,7 +19,7 @@ export default function Navbar() {
   // signin and login
 
   const [signinModel, setsigninModel] = useState(false);
-  console.log("signinModel:", signinModel);
+  // console.log("signinModel:", signinModel);
   const [loginModel, setLoginModel] = useState(false);
 
   const [signinDiv, setsigninDiv] = useState(false);

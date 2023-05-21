@@ -16,10 +16,11 @@ export default function ProductInfo() {
     cutPrice: "",
   });
 
-  const backendUrl = `http://localhost:8080/products/${productId}`;
+  const backendUrl = "https://pepperfryclonebackend.onrender.com";
 
   const getdataFromBacked = () => {
-    fetch(backendUrl)
+    let url = `${backendUrl}/${productId}`;
+    fetch(url)
       .then((response) => {
         if (response.ok) {
           return response.json();

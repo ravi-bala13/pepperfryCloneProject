@@ -1,6 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function SigninModel({ setsigninModel, setLoginModel }) {
+  const [userDetails, setUserDetails] = useState({
+    uname: "",
+    umail: "",
+    unumber: "",
+    upassword: "",
+  });
+
+  const backendUrl = "https://pepperfryclonebackend.onrender.com";
+  // const backendUrl = "http://localhost:8080";
+
+  const signinSubmit = async () => {
+    try {
+      let url = `${backendUrl}/users/signup`;
+      let result = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(userDetails),
+      });
+      let data = await result.json();
+      if (data.message) {
+        alert(data.message);
+        setsigninModel(false);
+      }
+    } catch (error) {
+      console.log("error:", error);
+    }
+  };
+  const handleChange = (e) => {
+    setUserDetails({ ...userDetails, [e.target.name]: e.target.value });
+  };
+
   return (
     <div id="signin-modal">
       <span
@@ -32,6 +63,8 @@ export default function SigninModel({ setsigninModel, setLoginModel }) {
                       id="UnName"
                       placeholder="Name"
                       name="uname"
+                      value={userDetails.uname}
+                      onChange={handleChange}
                       required
                     />
                     <p id="alert1"></p>
@@ -45,7 +78,9 @@ export default function SigninModel({ setsigninModel, setLoginModel }) {
                       className="Input"
                       id="UserNum"
                       placeholder="Mobile number"
-                      name="num"
+                      name="unumber"
+                      value={userDetails.unumber}
+                      onChange={handleChange}
                       required
                     />
                     <p id="alert"></p>
@@ -59,7 +94,9 @@ export default function SigninModel({ setsigninModel, setLoginModel }) {
                       className="Input"
                       id="mail"
                       placeholder="Email"
-                      name="mail"
+                      name="umail"
+                      value={useState.umail}
+                      onChange={handleChange}
                       required
                     />
                     <p id="alert2"></p>
@@ -73,14 +110,18 @@ export default function SigninModel({ setsigninModel, setLoginModel }) {
                       className="Input"
                       id="psswrd"
                       placeholder="Password"
-                      name="psw"
+                      name="upassword"
+                      value={userDetails.upassword}
+                      onChange={handleChange}
                       required
                     />
                     <p id="alert3"></p>
                   </div>
                 </div>
               </form>
-              <button id="register">REGISTER</button>
+              <button id="register" onClick={signinSubmit}>
+                REGISTER
+              </button>
               <span className="login_span">
                 By registering you agree to our{" "}
                 <a className="termconditions" href="#">

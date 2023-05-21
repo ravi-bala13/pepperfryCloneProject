@@ -6,10 +6,11 @@ import { Link } from "react-router-dom";
 
 export default function Products() {
   const [products, setProducts] = useState([]);
+  const backendUrl = "https://pepperfryclonebackend.onrender.com";
 
   const getProductsFromBackend = async () => {
     try {
-      let url = "http://localhost:8080/products";
+      let url = `${backendUrl}/products`;
       let result = await fetch(url);
       console.log("result:", result);
       let data = await result.json();
