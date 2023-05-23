@@ -3,6 +3,7 @@ import "./ProductInfo.css";
 import Navbar from "./Navbar";
 import FooterBar from "./FooterBar";
 import { useParams } from "react-router-dom";
+import { backendUrl } from "../Utils/Constants";
 
 export default function ProductInfo() {
   const queryParams = useParams();
@@ -15,8 +16,6 @@ export default function ProductInfo() {
     brand: "",
     cutPrice: "",
   });
-
-  const backendUrl = "https://pepperfryclonebackend.onrender.com";
 
   const getdataFromBacked = () => {
     let url = `${backendUrl}/${productId}`;

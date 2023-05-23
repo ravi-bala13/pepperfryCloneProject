@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./Cart.css";
+import { backendUrl } from "../Utils/Constants";
 
 export default function Cart() {
   const [products, setProducts] = useState([]);
 
   const getProductsFromBackend = async () => {
     try {
-      let url = "http://localhost:8080/products";
+      let url = `${backendUrl}/products`;
       let result = await fetch(url);
       console.log("result:", result);
       let data = await result.json();

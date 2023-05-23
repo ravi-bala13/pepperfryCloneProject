@@ -1,13 +1,16 @@
 import React, { useState } from "react";
+import { backendUrl } from "../Utils/Constants";
+import { saveData } from "../Utils/localStorage";
+import { useDispatch } from "react-redux";
+import { setUserName } from "../Redux/action";
 
 export default function LoginModel({ setsigninModel, setLoginModel }) {
+  const dispatch = useDispatch();
   const [userDetails, setUserDetails] = useState({
     umail: "",
     upassword: "",
   });
 
-  const backendUrl = "https://pepperfryclonebackend.onrender.com";
-  // const backendUrl = "http://localhost:8080";
   const loginSubmit = async () => {
     try {
       let url = `${backendUrl}/users/login`;
@@ -19,6 +22,8 @@ export default function LoginModel({ setsigninModel, setLoginModel }) {
       console.log("result:", result);
       let data = await result.json();
       console.log("data:", data);
+      saveData("username", data.name);
+      dispatch(setUserName(data.name));
       if (data.message) {
         alert(data.message);
         setLoginModel(false);

@@ -1,8 +1,16 @@
 import React, { useState } from "react";
 import SigninModel from "./SigninModel";
 import LoginModel from "./LoginModel";
+import { useDispatch, useSelector } from "react-redux";
+import { clearLocalStorage } from "../Utils/localStorage";
+import { setUserName } from "../Redux/action";
 
 export default function Navbar() {
+  const username = useSelector((state) => state.userName);
+  console.log("username:", username);
+
+  const dispatch = useDispatch();
+
   const [dropDowns, setDropDowns] = useState({
     isFurniture: false,
     isLiving: false,
@@ -14,6 +22,11 @@ export default function Navbar() {
 
   const handleOnMouseOut = (type) => {
     setDropDowns((prevState) => ({ ...prevState, [type]: false }));
+  };
+
+  const logOut = () => {
+    clearLocalStorage();
+    dispatch(setUserName(null));
   };
 
   // signin and login
@@ -59,12 +72,19 @@ export default function Navbar() {
             onMouseOutCapture={() => setsigninDiv(false)}
           >
             <span className="material-icons-outlined"> person_outline </span>
-            <span>Profile</span>
+            <span>{username ? username : "Profile"}</span>
             {signinDiv ? (
               <div id="signin-div">
-                <button onClick={() => setLoginModel(true)} id="signin-div-btn">
-                  LOGIN/REGISTER
-                </button>
+                {username ? (
+                  <button onClick={() => logOut()}>Logout</button>
+                ) : (
+                  <button
+                    onClick={() => setLoginModel(true)}
+                    id="signin-div-btn"
+                  >
+                    LOGIN/REGISTER
+                  </button>
+                )}
                 <p>To access your account & manage orders</p>
               </div>
             ) : null}

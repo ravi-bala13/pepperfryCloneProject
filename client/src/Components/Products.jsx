@@ -2,11 +2,10 @@ import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import FooterBar from "./FooterBar";
 import "./Products.css";
-import { Link } from "react-router-dom";
+import { backendUrl } from "../Utils/Constants";
 
 export default function Products() {
   const [products, setProducts] = useState([]);
-  const backendUrl = "https://pepperfryclonebackend.onrender.com";
 
   const getProductsFromBackend = async () => {
     try {

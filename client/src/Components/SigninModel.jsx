@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { backendUrl } from "../Utils/Constants";
 
 export default function SigninModel({ setsigninModel, setLoginModel }) {
   const [userDetails, setUserDetails] = useState({
@@ -7,9 +8,6 @@ export default function SigninModel({ setsigninModel, setLoginModel }) {
     unumber: "",
     upassword: "",
   });
-
-  const backendUrl = "https://pepperfryclonebackend.onrender.com";
-  // const backendUrl = "http://localhost:8080";
 
   const signinSubmit = async () => {
     try {
