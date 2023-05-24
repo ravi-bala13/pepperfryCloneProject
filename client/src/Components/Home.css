@@ -856,3 +856,10 @@ hr {
     font-size: 0.75rem;
     color: gray;
 }
+
+.loading-img {
+    position: absolute;
+    left: 42%;
+    top: 150;
+    z-index: 1000;
+}

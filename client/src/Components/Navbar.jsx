@@ -6,8 +6,7 @@ import { clearLocalStorage } from "../Utils/localStorage";
 import { setUserName } from "../Redux/action";
 
 export default function Navbar() {
-  const username = useSelector((state) => state.userName);
-  console.log("username:", username);
+  const { username, isLoading } = useSelector((state) => state);
 
   const dispatch = useDispatch();
 
@@ -368,6 +367,14 @@ export default function Navbar() {
               </div>
             </div>
           </div>
+
+          {isLoading ? (
+            <img
+              className="loading-img"
+              src="https://media.tenor.com/On7kvXhzml4AAAAj/loading-gif.gif"
+              alt=""
+            />
+          ) : null}
 
           {signinModel ? (
             <SigninModel

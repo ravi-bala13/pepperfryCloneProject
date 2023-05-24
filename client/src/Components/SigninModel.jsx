@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { backendUrl } from "../Utils/Constants";
+import { useDispatch } from "react-redux";
+import { setIsLoading } from "../Redux/action";
 
 export default function SigninModel({ setsigninModel, setLoginModel }) {
+  const dispatch = useDispatch();
   const [userDetails, setUserDetails] = useState({
     uname: "",
     umail: "",
@@ -11,6 +14,7 @@ export default function SigninModel({ setsigninModel, setLoginModel }) {
 
   const signinSubmit = async () => {
     try {
+      dispatch(setIsLoading(true));
       let url = `${backendUrl}/users/signup`;
       let result = await fetch(url, {
         method: "POST",
@@ -21,9 +25,11 @@ export default function SigninModel({ setsigninModel, setLoginModel }) {
       if (data.message) {
         alert(data.message);
         setsigninModel(false);
+        dispatch(setIsLoading(false));
       }
     } catch (error) {
       console.log("error:", error);
+      dispatch(setIsLoading(false));
     }
   };
   const handleChange = (e) => {

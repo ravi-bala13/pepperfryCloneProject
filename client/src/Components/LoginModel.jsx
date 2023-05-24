@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { backendUrl } from "../Utils/Constants";
 import { saveData } from "../Utils/localStorage";
 import { useDispatch } from "react-redux";
-import { setUserName } from "../Redux/action";
+import { setIsLoading, setUserName } from "../Redux/action";
 
 export default function LoginModel({ setsigninModel, setLoginModel }) {
   const dispatch = useDispatch();
@@ -13,6 +13,7 @@ export default function LoginModel({ setsigninModel, setLoginModel }) {
 
   const loginSubmit = async () => {
     try {
+      dispatch(setIsLoading(true));
       let url = `${backendUrl}/users/login`;
       let result = await fetch(url, {
         method: "POST",
@@ -24,12 +25,14 @@ export default function LoginModel({ setsigninModel, setLoginModel }) {
       console.log("data:", data);
       saveData("username", data.name);
       dispatch(setUserName(data.name));
+      dispatch(setIsLoading(false));
       if (data.message) {
         alert(data.message);
         setLoginModel(false);
       }
     } catch (error) {
       console.log("error:", error);
+      dispatch(setIsLoading(false));
     }
   };
 

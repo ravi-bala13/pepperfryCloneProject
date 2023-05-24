@@ -1,8 +1,9 @@
-import { SET_USERID, SET_USERNAME } from "./actionTypes";
+import { SET_ISLOADING, SET_USERID, SET_USERNAME } from "./actionTypes";
 
 const initState = {
   userId: null,
-  userName: null,
+  username: null,
+  isLoading: false,
 };
 
 export const reducer = (state = initState, { type, payload }) => {
@@ -16,7 +17,12 @@ export const reducer = (state = initState, { type, payload }) => {
     case SET_USERNAME:
       return {
         ...state,
-        userName: payload,
+        username: payload,
+      };
+    case SET_ISLOADING:
+      return {
+        ...state,
+        isLoading: payload,
       };
     default:
       return state;
