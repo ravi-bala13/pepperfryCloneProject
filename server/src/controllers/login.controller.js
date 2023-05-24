@@ -1,16 +1,11 @@
 const express = require("express");
-
+require("dotenv").config();
 const router = express.Router();
 
 const User = require("../models/users.model");
+const Cart = require("../models/cart.model");
 
-require("dotenv").config();
-
-const jwt = require("jsonwebtoken");
-
-const newToken = (user) => {
-  return jwt.sign({ user: user }, process.env.JWT_ACCESS_KEY);
-};
+const { newToken } = require("../utils/jwtUtils");
 
 // for geting register details from pepperfry
 router.post("/signup", async (req, res) => {
@@ -29,7 +24,14 @@ router.post("/signup", async (req, res) => {
       password: req.body.upassword,
     });
 
-    const token = newToken(user.email);
+    // Create a cart instance for a new user and save it to the database
+    const cart = new Cart({
+      userId: user._id,
+    });
+    const result = await cart.save();
+    console.log("cart saved successfully", result);
+
+    const token = newToken(user);
     const message = "successfully created";
 
     logined_user_name = req.body.uname;
@@ -37,7 +39,7 @@ router.post("/signup", async (req, res) => {
     console.log(logined_user_name, logined_user_mobile);
     return res
       .status(200)
-      .json({ message: message, name: user.name, token: "token" });
+      .json({ message: message, name: user.name, token: token });
   } catch (e) {
     return res.status(500).json({ message: e.message, status: "Failed" });
   }

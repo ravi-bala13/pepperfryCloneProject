@@ -1,12 +1,12 @@
 const express = require("express");
 const cors = require("cors");
 
-const userController = require("./controllers/users.controller");
+const loginController = require("./controllers/login.controller");
 const productController = require("./controllers/products.controller");
+const cartController = require("./controllers/cart.controller");
 
 const app = express();
 app.use(cors());
-
 app.use(express.json());
 
 app.get("/health-check", (req, res) => {
@@ -14,7 +14,7 @@ app.get("/health-check", (req, res) => {
 });
 
 app.use("/products", productController);
-
-app.use("/users", userController);
+app.use("/users", loginController);
+app.use("/cart", cartController);
 
 module.exports = app;

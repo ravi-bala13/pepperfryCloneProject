@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from "react";
 import "./Cart.css";
 import { backendUrl } from "../Utils/Constants";
+import { loadData } from "../Utils/localStorage";
 
 export default function Cart() {
   const [products, setProducts] = useState([]);
+  console.log("products:", products);
+
+  const token = loadData("token");
 
   const getProductsFromBackend = async () => {
     try {
-      let url = `${backendUrl}/products`;
+      let url = `${backendUrl}/cart/${token}`;
       let result = await fetch(url);
-      console.log("result:", result);
       let data = await result.json();
       console.log("data:", data);
-      if (data.length) {
-        setProducts(data);
+      if (data) {
+        setProducts(data.products);
       }
     } catch (error) {
       console.log("error:", error);

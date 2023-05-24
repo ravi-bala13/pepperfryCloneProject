@@ -4,12 +4,18 @@ import Navbar from "./Navbar";
 import FooterBar from "./FooterBar";
 import { useParams } from "react-router-dom";
 import { backendUrl } from "../Utils/Constants";
+import { useSelector } from "react-redux";
+import { loadData } from "../Utils/localStorage";
 
 export default function ProductInfo() {
   const queryParams = useParams();
   const productId = queryParams.id;
 
+  const userId = useSelector((state) => state.userId);
+  const token = loadData("token");
+
   const [product, setProduct] = useState({
+    _id: "",
     name: "",
     price: "",
     img: "",
@@ -18,7 +24,7 @@ export default function ProductInfo() {
   });
 
   const getdataFromBacked = () => {
-    let url = `${backendUrl}/${productId}`;
+    let url = `${backendUrl}/products/${productId}`;
     fetch(url)
       .then((response) => {
         if (response.ok) {
@@ -41,6 +47,24 @@ export default function ProductInfo() {
   useEffect(() => {
     getdataFromBacked();
   }, []);
+
+  const addProductToCart = async () => {
+    try {
+      let url = `${backendUrl}/cart/${token}`;
+      let result = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(product),
+      });
+      let data = await result.json();
+      console.log("data:", data);
+      if (data.message) {
+        alert(data.message);
+      }
+    } catch (error) {
+      console.log("error:", error);
+    }
+  };
 
   return (
     <div>
@@ -237,7 +261,10 @@ export default function ProductInfo() {
               <div className="pieces-left">Only 3 Left</div>
             </div>
             <div className="buttons">
-              <button onclick="ADDTOCART()" className="add-to-cart">
+              <button
+                onClick={() => addProductToCart()}
+                className="add-to-cart"
+              >
                 ADD TO CART
               </button>
               <a id="go">

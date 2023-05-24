@@ -2,13 +2,17 @@ import React, { useState } from "react";
 import SigninModel from "./SigninModel";
 import LoginModel from "./LoginModel";
 import { useDispatch, useSelector } from "react-redux";
-import { clearLocalStorage } from "../Utils/localStorage";
+import { clearLocalStorage, loadData } from "../Utils/localStorage";
 import { setUserName } from "../Redux/action";
+import { useNavigate } from "react-router-dom";
+// import { Navigate } from "react-router-dom";
 
 export default function Navbar() {
-  const { username, isLoading } = useSelector((state) => state);
-
+  const navigate = useNavigate();
+  const { isLoading } = useSelector((state) => state);
   const dispatch = useDispatch();
+
+  const username = loadData("username");
 
   const [dropDowns, setDropDowns] = useState({
     isFurniture: false,
@@ -26,6 +30,7 @@ export default function Navbar() {
   const logOut = () => {
     clearLocalStorage();
     dispatch(setUserName(null));
+    navigate("/");
   };
 
   // signin and login

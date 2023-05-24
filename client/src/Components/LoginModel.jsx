@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { backendUrl } from "../Utils/Constants";
 import { saveData } from "../Utils/localStorage";
 import { useDispatch } from "react-redux";
-import { setIsLoading, setUserName } from "../Redux/action";
+import { setIsLoading, setToken, setUserName } from "../Redux/action";
 
 export default function LoginModel({ setsigninModel, setLoginModel }) {
   const dispatch = useDispatch();
@@ -24,8 +24,10 @@ export default function LoginModel({ setsigninModel, setLoginModel }) {
       let data = await result.json();
       console.log("data:", data);
       saveData("username", data.name);
-      dispatch(setUserName(data.name));
+      // dispatch(setUserName(data.name));
       dispatch(setIsLoading(false));
+      // dispatch(setToken(data.token));
+      saveData("token", data.token);
       if (data.message) {
         alert(data.message);
         setLoginModel(false);

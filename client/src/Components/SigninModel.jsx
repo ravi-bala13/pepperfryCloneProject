@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { backendUrl } from "../Utils/Constants";
 import { useDispatch } from "react-redux";
-import { setIsLoading } from "../Redux/action";
+import { setIsLoading, setToken } from "../Redux/action";
+import { saveData } from "../Utils/localStorage";
 
 export default function SigninModel({ setsigninModel, setLoginModel }) {
   const dispatch = useDispatch();
@@ -22,16 +23,21 @@ export default function SigninModel({ setsigninModel, setLoginModel }) {
         body: JSON.stringify(userDetails),
       });
       let data = await result.json();
+      console.log("data:", data);
       if (data.message) {
         alert(data.message);
         setsigninModel(false);
+        saveData("username", data.name);
         dispatch(setIsLoading(false));
+        // dispatch(setToken(data.token));
+        saveData("token", data.token);
       }
     } catch (error) {
       console.log("error:", error);
       dispatch(setIsLoading(false));
     }
   };
+
   const handleChange = (e) => {
     setUserDetails({ ...userDetails, [e.target.name]: e.target.value });
   };
